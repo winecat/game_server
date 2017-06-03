@@ -13,7 +13,7 @@
 		 create_link/1
 		]).
 
--include("game.hrl").
+-include("common.hrl").
 -include("link.hrl").
 
 

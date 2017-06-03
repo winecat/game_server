@@ -13,7 +13,7 @@
 		 start_link/1
 		 ]).
 
--include("game.hrl").
+-include("common.hrl").
 
 %% flash跨域策略文件内容
 -define(FL_POLICY_FILE, <<"<cross-domain-policy><allow-access-from domain='*' to-ports='*' /></cross-domain-policy>">>).

@@ -14,7 +14,7 @@
 		]).
 
 
--include("game.hrl").
+%% -include("game.hrl").
 
 -define(APPS, [sasl, game]).
 

@@ -15,7 +15,7 @@
 		]).
 
 
--include("game.hrl").
+-include("common.hrl").
 
 %% ====================================================================
 %% Behavioural functions 
