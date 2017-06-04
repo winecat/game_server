@@ -1,15 +1,22 @@
 %% @author mxr
-%% @doc @todo app config to ets
+%% @doc 场景
 
 
--module(game_config).
+-module(map).
 -behaviour(gen_server).
 -export([init/1, handle_call/3, handle_cast/2, handle_info/2, terminate/2, code_change/3]).
 
-
+%% ====================================================================
+%% API functions
+%% ====================================================================
 -export([]).
 
+-include("map.hrl").
 
+
+%% ====================================================================
+%% Behavioural functions 
+%% ====================================================================
 -record(state, {}).
 
 %% init/1
@@ -43,8 +50,8 @@ code_change(OldVsn, State, Extra) ->
     {ok, State}.
 
 
-
+%% ====================================================================
 %% Internal functions
-
+%% ====================================================================
 
 

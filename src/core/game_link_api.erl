@@ -4,9 +4,7 @@
 
 -module(game_link_api).
 
-%% ====================================================================
 %% API functions
-%% ====================================================================
 -export([
 		 init_heartbeat/0
 		 ,check_heartbeat/1
@@ -14,7 +12,6 @@
 		]).
 
 -include("link.hrl").
--include("common.hrl").
 
 
 
@@ -37,15 +34,13 @@ read_next(#link_state{socket = Socket, recv_count = RecvCount, read_head = false
 	{noreply, LinkState#link_state{recv_count = RecvCount + 1, read_head = true}};
 read_next(LinkState) -> {noreply, LinkState}.
 
-service_routeing(Cmd, Bin, LinkState#link_state{}) ->
+%% service_routeing(Cmd, Bin, LinkState#link_state{}) ->
+    
 	
-%% ====================================================================
 %% Internal functions
-%% ====================================================================
-
 
 send_next_heartbeat() ->
-	?cancel_timer(erlang:get("heartbeat_ref")),
+	?CANCEL_TIMER(erlang:get("heartbeat_ref")),
 	TimerRef = erlang:send_after(30000, self(), 'check_heartbeat'),
 	erlang:put("heartbeat_ref", TimerRef).
 	
