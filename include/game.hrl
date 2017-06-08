@@ -1,10 +1,11 @@
 %% 游戏公用头文件
 
--ifndef(GAME_HRL).
+-ifndef(GAME_HRL).      %% GAME_HRL START
 -define(GAME_HRL, ok).
 
 %% 日志(输出到控制台)
 %% 注意只输出一个Msg时不能含~w等特殊符号，否则用 ("~ts", [Utf8BinaryMsg]) 来输出
+%% error会打印到文件
 -ifdef(debug).
 -define(DEBUG(Msg), logger:debug(Msg, [], ?MODULE, ?LINE)).
 -define(DEBUG(F,A), logger:debug(F, A, ?MODULE, ?LINE)).
@@ -22,10 +23,6 @@
 -endif.
 
 
-%% CLIENT TYPE
--define(CLIENT_TYPE_GAME, type_normal).
--define(CLIENT_TYPE_TESTER, type_tester).
-
 -define(cancel_timer(TimerRef), 
 		case erlang:is_reference(TimerRef) of
 			true -> erlang:cancel_timer(TimerRef);
@@ -40,4 +37,4 @@
 		end
 	   ).
 
--endif.	%% GAME_HRL
+-endif.	%% GAME_HRL END

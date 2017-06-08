@@ -10,8 +10,8 @@
 	 ,{mod, {game, []}}
 	 ,{env, [
 	 		 {platform, <<"">>}
-	 		 ,{server_id, 0}
-	 		 ,{server_ids, []}
+	 		 %%,{server_id, 0}
+	 		 %%,{server_ids, []}
 	 		 ,{log_path, "./../var/"}
 	 		 ,{host, "127.0.0.1"}
 	 		 ,{port, 7001}
