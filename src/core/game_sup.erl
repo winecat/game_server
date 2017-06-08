@@ -16,8 +16,7 @@
 
 %% Behavioural functions 
 start_link() ->
-	Host = application:get_env(host),
-	Port = application:get_env(port),
+    [Host, Port|_] = init:get_arguments(),
 	supervisor:start_link({local, ?MODULE}, ?MODULE, [Host, Port]).
 
 %% init/1

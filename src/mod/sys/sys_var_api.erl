@@ -19,10 +19,15 @@
 load_from_application() -> ok.
 
 %% sys var form db dynamic_compile
-load_from_db() -> ok.
+load_from_db() ->
+    SQL = <<"select key, value from sys_var">>,
+    List = db:get_all(SQL),
+    parse(List),
+    ok.
 
 
 %% Internal functions
 %% ---------------------------------
+parse(List) -> ok.
 
 

@@ -15,4 +15,10 @@
 %% 后台使用便令定义 sys_ 开头
 -define(SYS_MERGE_TIME, sys_merge_time).
 
+-define(SYS_VAR_LIST, 
+        [
+         {?SYS_MERGE_TIME, 0}
+         ,{?GLOBAL_OPEN_TIME, {{2017,1,1}, {0,0,0}}}
+        ]).
+
 -endif.      %% GAME_GLOBAL_HRL END
