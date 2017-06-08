@@ -2,7 +2,7 @@
 %% @doc game start function modules.
 
 
--module(game_ets).
+-module(game_mods).
 
 -export([
 		 server_list/2

@@ -11,15 +11,8 @@
 		 ]).
 
 -include("game.hrl").
+-include("link.hrl").
 
-%% flash跨域策略文件内容
--define(FL_POLICY_FILE, <<"<cross-domain-policy><allow-access-from domain='*' to-ports='*' /></cross-domain-policy>">>).
-%% 游戏客户端握手消息
--define(SOCKET_INFO_NORMAL, <<"game_client------------">>).
-%% 游戏客户端握手消息
--define(SOCKET_INFO_TESTER, <<"game_tester------------">>).
-%% flash策略文件请求
--define(CLIENT_FL_POLICY_REQ, <<"<policy-file-request/>\0">>).
 
 %% ====================================================================
 %% Behavioural functions 

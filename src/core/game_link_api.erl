@@ -40,7 +40,7 @@ read_next(LinkState) -> {noreply, LinkState}.
 %% Internal functions
 
 send_next_heartbeat() ->
-	?CANCEL_TIMER(erlang:get("heartbeat_ref")),
+	?cancel_timer(erlang:get("heartbeat_ref")),
 	TimerRef = erlang:send_after(30000, self(), 'check_heartbeat'),
 	erlang:put("heartbeat_ref", TimerRef).
 	
