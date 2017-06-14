@@ -5,29 +5,6 @@
 source `pwd`/conf.sh
 echo "start game server..."
 
-case ${1} in
-    script) fun_script;; # 生成相关脚本
-    start) fun_start;; # 启动所有设定的节点
-    stop) fun_stop;; # 关闭所有节点
-    hot) fun_hot ${2};; # 热更新beam文件
-    *)
-        use_help;
-        exit 1
-        ;;
-esac
-
-
-use_help() {
-    echo "control switch"
-    echo "用法:"
-    echo "./`basename $0` [command]"
-    echo ""
-    echo " command 有效命令："
-    echo " script - 生成相关脚本"
-    echo " start_all - 启动所有设定的节点"
-    echo " stop_all - 关闭所有节点"
-    echo ""
-}
 
 fun_script(){
     if [ "${IS_IS_CROSS}" == "1" ]; then
@@ -66,4 +43,34 @@ echo "游戏启动中..."
 ${SCREEN} -d -m -S ${start} -s \${SCRIPT_PATH}/game_init.sh \${LOG_OPTION}
 sleep 2
 EOF
-    }
+}
+    
+    
+# help function
+use_help() {
+    echo "control switch"
+    echo "用法:"
+    echo "./`basename $0` [command]"
+    echo ""
+    echo " command 有效命令："
+    echo " script - 生成相关脚本"
+    echo " start_all - 启动所有设定的节点"
+    echo " stop_all - 关闭所有节点"
+    echo ""
+}
+    
+case ${1} in
+    script) fun_script;; # 生成相关脚本
+    start) fun_start;; # 启动所有设定的节点
+    stop) fun_stop;; # 关闭所有节点
+    hot) fun_hot ${2};; # 热更新beam文件
+    *)
+        use_help;
+        exit 1
+        ;;
+esac
+
+wait # 等待脚本执行完成
+echo ""
+echo " ${1} done.."
+echo ""

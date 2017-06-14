@@ -29,6 +29,8 @@ logger_file() ->
     error_logger:logfile([{open, lists:concat([LogPath, Date, ".log"])}]),
     ok.
 
+error(ErrMSG) ->
+    gen_server:cast(?MODULE, {'error_msg', ErrMSG}).
 
 
 
